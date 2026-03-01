@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         val btnDivide = findViewById<Button>(R.id.btnDivide)
         val btnEquals = findViewById<Button>(R.id.btnEquals)
         val btnClear = findViewById<Button>(R.id.btnClear)
-
+        val btnSquare = findViewById<Button>(R.id.btnSquare)
         btnPlus.setOnClickListener {
             action = "+"
         }
@@ -64,6 +64,9 @@ class MainActivity : AppCompatActivity() {
         btnDivide.setOnClickListener {
             action = "/"
         }
+        btnSquare.setOnClickListener {
+            action = "V"
+        }
         btnEquals.setOnClickListener {
             val num1 = first.toIntOrNull() ?: 0
             val num2 = second.toIntOrNull() ?: 0
@@ -72,6 +75,7 @@ class MainActivity : AppCompatActivity() {
                 "-" -> num1 - num2
                 "*" -> num1 * num2
                 "/" -> if (num2 != 0) num1 / num2 else 0
+                "V" -> num1 * num1
                 else -> 0
             }
             tvResult.text = result.toString()
